@@ -2,11 +2,14 @@
 
 % Set up data on which to do the testing.
 NT = 201; % 201 time steps
-NCELL = 30; % 30 time series (i.e. biuluminescence data for 30 cells)
+NCELL = 30; % 30 time series (i.e. bioluminescence data for 30 cells)
 Ii = 1; % cell of interest (% in line b of the algorithm, it loops over all values of i. I am just doing this for one).
 Jjtarget = 3; % cell to see if it affects cell Ii. (This is constructed so that we can detect a dependence)
 time = linspace(0, 200, NT); % set up time
 data = zeros(NT,NCELL); % initialize the data matrix
+FList = zeros(1, NCELL);
+
+
 for i = 1 : NCELL,
     % Each time series is a sine curve with a slightly different period
     % near 24 h.
@@ -67,4 +70,7 @@ for Jj = 1 : NCELL,
     % The threshold should be larger than 1. Maybe 1.5?
     F = sigma_squared0/sigma_squared1;
     disp( ['sigma squared for full is ',num2str(sigma_squared1),' and partial when JJ=',num2str(Jj),' is ',num2str(sigma_squared0), ', F= ',num2str(F)]);
+    FList(Jj) = F;
 end;
+% disp(FList);
+hist(FList);
