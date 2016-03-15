@@ -7,7 +7,7 @@ Ii = 1; % cell of interest (% in line b of the algorithm, it loops over all valu
 Jjtarget = 3; % cell to see if it affects cell Ii. (This is constructed so that we can detect a dependence)
 time = linspace(0, 200, NT); % set up time
 data = zeros(NT,NCELL); % initialize the data matrix
-for i = 1 : NY,
+for i = 1 : NCELL,
     % Each time series is a sine curve with a slightly different period
     % near 24 h.
     data(:,i) = sin( time ./ (24+i*0.1)*(2*pi) )';
@@ -39,13 +39,13 @@ sigma_squared1 = resid1'*resid1/(size(Z',1)-(size(Z',2)-1)-1);
 % End code for row d of the algorithm
 
 % Row e is the loop control line. Here it is.
-for Jj = 1 : NY,
+for Jj = 1 : NCELL,
     % Begin row f of the algorithm
     % Solve the partial model to test i's dependence on j. (eq 12 in paper)
     % So we compute it without the j'th cell considered in Z.
     Y = data(P+1:end,Ii)';
     Z = ones(1,NT-P);
-    cell_idxs = setdiff(1:NY,Jj);
+    cell_idxs = setdiff(1:NCELL,Jj);
     for i = 1 : P,
         Z = [Z; data(P-i+1:end-i,cell_idxs)'];
     end;
@@ -65,6 +65,6 @@ for Jj = 1 : NY,
     % then we say there is a connection from cell Ii to cell Jj.
     % Right now, I am just printing out both sigma_squared values.
     % The threshold should be larger than 1. Maybe 1.5?
-    F= sigma_squared0/sigma_squared1;
+    F = sigma_squared0/sigma_squared1;
     disp( ['sigma squared for full is ',num2str(sigma_squared1),' and partial when JJ=',num2str(Jj),' is ',num2str(sigma_squared0), ', F= ',num2str(F)]);
 end;
