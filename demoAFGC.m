@@ -9,10 +9,15 @@ time = linspace(0, 200, NT); % set up time
 data = zeros(NT,NCELL); % initialize the data matrix
 FList = zeros(NCELL, NCELL);
 
+% stephanie start
+% varying period over time (starts at 24 and ends at around 25)
+period_over_time = 24 * linspace( 1, 1.05, length(time) );
+% stephanie end
+
 for i = 1 : NCELL,
     % Each time series is a sine curve with a slightly different period
     % near 24 h.
-    data(:,i) = sin( time ./ (24+i*0.1)*(2*pi) )';
+    data(:,i) = sin( time ./ (period_over_time+i*0.1).*(2*pi) )';
 end;
 % Each time series has noise in the signal
 data = data + randn( size(data) );
