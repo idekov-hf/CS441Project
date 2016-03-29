@@ -16,9 +16,10 @@ data = data + randn( size(data) );
 data(3:end,Ii) = data(1:end-2,Jjtarget);
 data(3:end,Ii) = data(3:end,Ii) + randn(size(data(3:end,Ii)))*0.5;
 
-plot(data(1:end,Ii));
+figure;
+plot(data(:,Ii));
 hold;
-plot(data(3:end,Ii));
+plot(data(:,Jjtarget));
 legend('Cell 1', 'Cell 3');
 title('Time Series Data for Cell 1 and 3');
 
