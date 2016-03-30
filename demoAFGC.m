@@ -84,4 +84,9 @@ end;
 % disp(FList);
 % hist(FList);
 figure;
+
 imagesc(FList);
+xlabel('Cell Number');
+ylabel('Cell Number');
+title('Cell-To-Cell Connections');
+set(gca, 'Fontsize', 20);
