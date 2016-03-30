@@ -9,7 +9,7 @@ data = f.base_data;
 NT = size(data,1); % number of time steps
 NCELL = size(data,2); % number of cells aka time series
 Ii = 1; % cell of interest (% in line b of the algorithm, it loops over all values of i. I am just doing this for one).
-time = linspace(0, 200, NT); % set up time
+time = 1:NT; % set up time
 FList = zeros(NCELL, NCELL);
 
 % We will look back up to 4 time steps
