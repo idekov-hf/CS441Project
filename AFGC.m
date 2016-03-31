@@ -66,10 +66,13 @@ for Ii = 1 : NCELL,
 end;
 % disp(FList);
 % hist(FList);
-figure;
 
-imagesc(FList);
-xlabel('Cell Number');
-ylabel('Cell Number');
-title('Cell-To-Cell Connections');
-set(gca, 'Fontsize', 20);
+save('AFGC_data.mat','FList');
+
+% figure;
+% imagesc(FList);
+% imagesc( min( FList, 5 ));
+% xlabel('Cell Number');
+% ylabel('Cell Number');
+% title('Cell-To-Cell Connections');
+% set(gca, 'Fontsize', 20);
