@@ -3,8 +3,8 @@
 % load in all the data (includes, base, TTX and wash data)
 f = load( 'Jan_data.mat' );
 % data = f.base_data;
-data = f.TTX_data;
-% data = f.wash_data;
+% data = f.TTX_data;
+data = f.wash_data;
 
 % Set up data on which to do the testing.
 
@@ -69,7 +69,7 @@ end;
 % disp(FList);
 % hist(FList);
 
-save('AFGC_TTX_data.mat','FList');
+save('AFGC_wash_data.mat','FList');
 
 % figure;
 % imagesc(FList);
