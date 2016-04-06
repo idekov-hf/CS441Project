@@ -80,6 +80,7 @@ for Ii = 1 : NCELL,
 %         disp( ['sigma squared for full is ',num2str(sigma_squared1),' and partial when JJ=',num2str(Jj),' is ',num2str(sigma_squared0), ', F= ',num2str(F)]);
         FList(Ii, Jj) = F;
     end;
+    fprintf('Ii = %d\n', Ii);
 end;
 % disp(FList);
 % hist(FList);
