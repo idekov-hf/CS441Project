@@ -1,4 +1,4 @@
-figure;
+figure('Color', 'white');
 % imagesc(FList);
 imagesc( min( FList, 5 ));
 xlabel('Cell Number');
