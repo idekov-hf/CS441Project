@@ -16,16 +16,16 @@ data = data + randn( size(data) );
 data(3:end,Ii) = data(1:end-2,Jjtarget);
 data(3:end,Ii) = data(3:end,Ii) + randn(size(data(3:end,Ii)))*0.5;
 
-figure;
-plot(data(:,Ii));
+figure( 'Color', 'white' );
+plot(data(:,Ii), 'LineWidth', 2);
+% plot(data(:,2), 'LineWidth', 2);
 hold;
-plot(data(:,Jjtarget));
-legend('Cell 1', 'Cell 3');
-title('Time Series Data for Cell 1 and 3');
+plot(data(:,Jjtarget), 'LineWidth', 2);
+% plot(data(:,4), 'LineWidth', 2);
+xlim( [0 204] )
 
-% plot(data);
-% title('Time Series Data For 30 Cells');
-
-ylabel('y');
+legend('Time series 1', 'Time series 2');
+title('High Granger Causality');
+ylabel('Amplitude');
 xlabel('Time Steps');
-set(gca,'fontsize', 20);
+set(gca,'fontsize', 30);

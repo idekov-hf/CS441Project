@@ -16,5 +16,5 @@ end;
 
 % xlabel('Time');
 % ylabel('');
-title('Most Influential and Influenced Cells', 'Fontsize', 24);
+title('Most Influential and Influenced Cells', 'Fontsize', 30);
 % set(gca, 'Fontsize', 20);
